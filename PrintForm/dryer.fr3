@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.15" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="45693,7726700926" ReportOptions.Description.Text="" ReportOptions.LastChange="45693,7777299768" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C656674025803546F7002380844617461736574730100095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="80" PaperHeight="80" PaperSize="256" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxMemoView Name="Memo1" Left="30,23624" Top="60,47248" Width="94,48825" Height="18,89765" ShowHint="False" Text="[Product]"/>
+    <TfrxMemoView Name="Memo2" Left="26,45671" Top="15,11812" Width="94,48825" Height="18,89765" ShowHint="False" Text="Label 2"/>
+    <TfrxMemoView Name="Memo3" Left="30,23624" Top="94,48825" Width="94,48825" Height="18,89765" ShowHint="False" Text="[Model]"/>
+  </TfrxReportPage>
+</TfrxReport>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025.01.31 20:37:24.786.pas,C:\Users\HONOR\Documents\Borland Studio Projects\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\MainUnit.pas</Transaction>
+    <Transaction>2025.01.31 20:37:24.786.dfm,C:\Users\HONOR\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\MainUnit.dfm</Transaction>
+    <Transaction>2025.01.31 20:37:41.742.bdsproj,C:\Users\HONOR\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\LabelPrint.bdsproj</Transaction>
+    <Transaction>2025.01.31 20:46:53.148.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Controls\TaskStorageControl.pas</Transaction>
+    <Transaction>2025.02.01 09:49:51.521.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\ModelData.pas</Transaction>
+    <Transaction>2025.02.01 10:43:00.790.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\ModelData.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\ModelDataUnit.pas</Transaction>
+    <Transaction>2025.02.01 10:46:22.805.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\ModelDataUnit.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\LabelDataUnit.pas</Transaction>
+    <Transaction>2025.02.01 11:39:50.330.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\DataListUnit.pas</Transaction>
+    <Transaction>2025.02.01 12:26:28.163.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\DataStorageUnit.pas</Transaction>
+    <Transaction>2025.02.01 12:37:53.985.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Controllers\DBControllerUnit.pas</Transaction>
+    <Transaction>2025.02.01 20:42:36.801.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Source\SQLite3.pas=</Transaction>
+    <Transaction>2025.02.03 20:39:17.954.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\PrintTaskUnit.pas</Transaction>
+    <Transaction>2025.02.05 17:02:05.031.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\SettingsDataUnit.pas</Transaction>
+    <Transaction>2025.02.05 18:32:18.829.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Controllers\PrintControllerDataModule.pas</Transaction>
+    <Transaction>2025.02.05 18:32:18.829.dfm,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.dfm=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Controllers\PrintControllerDataModule.dfm</Transaction>
+    <Transaction>2025.02.08 21:04:46.601.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit2.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\ConfirmPrinterForm.pas</Transaction>
+    <Transaction>2025.02.08 21:04:46.601.dfm,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit2.dfm=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\ConfirmPrinterForm.dfm</Transaction>
+    <Transaction>2025.02.10 17:33:47.611.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit1.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Controllers\TaskStorageFileControllerUnit.pas</Transaction>
+    <Transaction>2025.02.10 17:41:21.801.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Models\DataStorageUnit.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Controls\DataStorageControl.pas</Transaction>
+    <Transaction>2025.02.10 17:45:11.250.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Controls\DataStorageControl.pas=</Transaction>
+    <Transaction>2025.02.12 18:13:16.994.pas,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit2.pas=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\SettingsForm.pas</Transaction>
+    <Transaction>2025.02.12 18:13:16.995.dfm,C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\Unit2.dfm=C:\Users\HONOR\Documents\Borland Studio Projects\LabelPrint v2\SettingsForm.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

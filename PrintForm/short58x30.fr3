@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.15" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="42274,3643670602" ReportOptions.Description.Text="" ReportOptions.LastChange="45705,8346609838" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C656674021803546F70021008446174617365747301010C3600000020446174615365743D2266727855736572446174615365742220446174615365744E616D653D226672785573657244617461536574220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page" Orientation="poLandscape" PaperWidth="58" PaperHeight="30" PaperSize="256" LeftMargin="2" RightMargin="2" TopMargin="2" BottomMargin="2" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData1" Height="372,28346457" Left="0" Top="18,89765" Width="204,09462" ColumnWidth="214,677165354331" ColumnGap="0" DataSet="frxUserDataSet" DataSetName="frxUserDataSet" RowCount="0">
+      <TfrxMemoView Name="Memo3" Left="0" Top="0" Width="204,09454677" Height="15,11812" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[model]"/>
+      <TfrxMemoView Name="Memo10" Left="117,16543" Top="71,81107" Width="64,25201" Height="15,11812" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-9" Font.Name="Arial" Font.Style="1" HAlign="haRight" ParentFont="False" Text="[mydate]"/>
+      <TfrxMemoView Name="Memo12" Left="0" Top="18,89765" Width="204,09454677" Height="18,89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="[sn]"/>
+      <TfrxBarCodeView Name="BarCode" Left="13,22835134" Top="37,79525606" Width="211" Height="34,01577" ShowHint="False" BarType="bcCode128A" Expression="CODE" Rotation="0" ShowText="False" Text="KWMR30100424A001" WideBarRatio="2" Zoom="1" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0"/>
+      <TfrxMemoView Name="Memo9" Left="15,11812" Top="71,81107" Width="102,04731" Height="15,11812" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" ParentFont="False" VAlign="vaCenter" Text="ДАТА ИЗГОТОВЛЕНИЯ:"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>
