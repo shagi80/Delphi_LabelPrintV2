@@ -30,6 +30,12 @@ type
     cbCanEditPrintForm: TCheckBox;
     Label9: TLabel;
     cbChangeFactory: TCheckBox;
+    Label10: TLabel;
+    edBarCodeLeft: TEdit;
+    Label11: TLabel;
+    edBarCodeZoom: TEdit;
+    procedure edBarCodeLeftKeyPress(Sender: TObject; var Key: Char);
+    procedure edBarCodeZoomKeyPress(Sender: TObject; var Key: Char);
     procedure edCountKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
@@ -67,10 +73,27 @@ begin
   if Box.Items.Count > 0 then Box.ItemIndex := Ind;
 end;
 
+procedure TfrmSettings.edBarCodeLeftKeyPress(Sender: TObject; var Key: Char);
+const
+  Toolskey = [13, 8, 38..40, 48..57];
+begin
+  self.Caption := inttostr(ord(Key));
+  if (not(ord(Key) in ToolsKey) and not(Key in ['-'])) then Key := chr(0);
+end;
+
+procedure TfrmSettings.edBarCodeZoomKeyPress(Sender: TObject; var Key: Char);
+const
+  Toolskey = [13, 8, 38..40, 48..57];
+begin
+  self.Caption := inttostr(ord(Key));
+  if (not(ord(Key) in ToolsKey) and not(Key in ['.', ','])) then Key := chr(0);
+end;
+
 procedure TfrmSettings.edCountKeyPress(Sender: TObject; var Key: Char);
 const
-  Toolskey = [13, 8, 46, 38..40, 48..57];
+  Toolskey = [13, 8, 38..40, 48..57];
 begin
+  self.Caption := inttostr(ord(Key));
   if not(ord(Key) in ToolsKey) then Key := chr(0);
 end;
 
@@ -110,6 +133,8 @@ begin
   UpdateBarCodeList(SettingsData.DefBarCode);
   cbCanEditPrintForm.Checked := SettingsData.CanEditPrintForm;
   cbChangeFactory.Checked := not SettingsData.DontChangeFactory;
+  edBarCodeLeft.Text := IntToStr(SettingsData.BarCodeLeft);
+  edBarCodeZoom.Text := FloatToStr(SettingsData.BarCodeZoom);
 
   Result := (Self.ShowModal = mrOk);
   if Result then begin
@@ -126,6 +151,8 @@ begin
     SettingsData.DefBarCode := cbBarCode.ItemIndex + 1;
     SettingsData.CanEditPrintForm := cbCanEditPrintForm.Checked;
     SettingsData.DontChangeFactory := not cbChangeFactory.Checked;
+    SettingsData.BarCodeLeft := StrToIntDef(edBarCodeLeft.Text, 0);
+    SettingsData.BarCodeZoom := StrToFloatDef(edBarCodeZoom.Text, 1);
   end;
 end;
 

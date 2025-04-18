@@ -163,8 +163,8 @@ procedure TfrmMain.NewTaskView(Sender: TObject);
 begin
   pnMain.Visible := False;
   lbCaption.Caption := 'Новая этикетка';
-  lvNewTask.Visible := True;
   lvNewTask.Align := alClient;
+  lvNewTask.Visible := True;
   btnBack.Enabled := False;
   Self.Color := clWhite;
   edFirst.OnChange := nil;
@@ -378,13 +378,13 @@ begin
   if not btnPrint.Enabled then Exit;
   if Sender = edCount then Exit;
   SetTaskData;
-  dmPrint.Preview(CurrentTask);
+  dmPrint.Preview(CurrentTask, Settings);
 end;
 
 procedure TfrmMain.btnPrintClick(Sender: TObject);
 begin
   SetTaskData;
-  if dmPrint.Print(CurrentTask) then AddTaskToStorage;
+  if dmPrint.Print(CurrentTask, Settings) then AddTaskToStorage;
 end;
 
 // События истории задач
@@ -436,14 +436,13 @@ end;
 
 procedure TfrmMain.OnChangeSettings;
 begin
-  dmPrint.DefPrinterName := Settings.DefPrinterName;
-  dmPrint.DefBarCode := Settings.DefBarCode;
   pnTaskStorage.StorageSize := Settings.DefStorageSize;
   btnFirstCount.Caption := '1-' + IntToStr(Settings.DefCount);
   btnSavePrintForm.Enabled := Settings.CanEditPrintForm;
   cbFormFile.Enabled := Settings.CanEditPrintForm;
   cbFactory.Enabled := not Settings.DontChangeFactory;
-  if (pnMain.Visible) and (btnPrint.Enabled) then dmPrint.Preview(CurrentTask);
+  if (pnMain.Visible) and (btnPrint.Enabled) then dmPrint.Preview(CurrentTask,
+    Settings);
   Self.CheckFactory;
 end;
 

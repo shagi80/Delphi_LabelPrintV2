@@ -1086,6 +1086,7 @@ object frmMain: TfrmMain
     BorderWidth = 20
     Color = clWhite
     Columns = <>
+    IconOptions.AutoArrange = True
     LargeImages = ilNewTask
     TabOrder = 2
     OnClick = lvNewTaskClick

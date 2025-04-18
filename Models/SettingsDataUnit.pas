@@ -18,6 +18,8 @@ type
     FDefBarCode: integer;
     FCanEditPrintForm: boolean;
     FDontChangeFactory: boolean;
+    FBarCodeLeft: integer;
+    FBarCodeZoom: real;
     function LoadFromFile: boolean;
   public
     constructor Create(FileName: string);
@@ -29,6 +31,8 @@ type
     property DefBarCode: integer reaD FDefBarCode write FDefBarCode;
     property CanEditPrintForm: boolean read FCanEditPrintForm write FCanEditPrintForm;
     property DontChangeFactory: boolean read FDontChangeFactory write FDontChangeFactory;
+    property BarCodeLeft: integer read FBarCodeLeft write FBarCodeLeft;
+    property BarCodeZoom: real read FBarCodeZoom write FBarCodeZoom;
     procedure SaveToFile;
   end;
 
@@ -47,6 +51,8 @@ type
     DefBarCode: integer;
     CanEditPrintForm: boolean;
     DontChangeFactory: boolean;
+    BarCodeLeft: integer;
+    BarCodeZoom: real;
   end;
 
 constructor TSettingsData.Create(FileName: string);
@@ -62,6 +68,8 @@ begin
     FDefBarCode := bcEAN13;
     FCanEditPrintForm := True;
     FDontChangeFactory := True;
+    FBarCodeLeft := 0;
+    FBarCodeZoom := 1;
   end;
 end;
 
@@ -84,6 +92,8 @@ begin
     FDefBarCode := Rec.DefBarCode;
     FCanEditPrintForm := Rec.CanEditPrintForm;
     FDontChangeFactory := Rec.DontChangeFactory;
+    FBarCodeLeft := Rec.BarCodeLeft;
+    FBarCodeZoom := Rec.BarCodeZoom;
     Result := True
   finally
     CloseFile(AFile);
@@ -104,6 +114,8 @@ begin
   Rec.DefBarCode := FDefBarCode;
   Rec.CanEditPrintForm := FCanEditPrintForm;
   Rec.DontChangeFactory := FDontChangeFactory;
+  Rec.BarCodeLeft := FBarCodeLeft;
+  Rec.BarCodeZoom := FBarCodeZoom;
   AssignFile(AFile, Self.FFileName);
   Rewrite(AFile);
   try

@@ -3,7 +3,8 @@ unit PrintControllerDataModule;
 interface
 
 uses
-  SysUtils, Classes, frxClass, PrintTaskUnit, frxBarcode;
+  SysUtils, Classes, frxClass, PrintTaskUnit, frxBarcode,
+  SettingsDataUnit;
 
 type
   TdmPrint = class(TDataModule)
@@ -16,8 +17,7 @@ type
     { Private declarations }
     FTask: TPrintTask;
     FFormPath: string;
-    FDefPrinterName: string;
-    FDefBarCode: integer;
+    FSettings: TSettingsData;
     function PrepareReport(Task: TPrintTask): boolean;
     function SetPrinter: boolean;
     function GetEAN13(Num: integer): string;
@@ -25,10 +25,8 @@ type
   public
     { Public declarations }
     property FormPath: string read FFormPath write FFormPath;
-    property DefPrinterName: string read FDefPrinterName write FDefPrinterName;
-    property DefBarCode: integer read FDefBarCode write FDefBarCode;
-    procedure Preview(Task: TPrintTask);
-    function Print(Task: TPrintTask): boolean;
+    procedure Preview(Task: TPrintTask; Settings: TSettingsData);
+    function Print(Task: TPrintTask; Settings: TSettingsData): boolean;
   end;
 
 var
@@ -39,13 +37,13 @@ implementation
 {$R *.dfm}
 
 uses
-  Dialogs, Forms, frxPrinter, SettingsDataUnit, Controls, ConfirmPrinterForm,
+  Dialogs, Forms, frxPrinter, Controls, ConfirmPrinterForm,
   frxBarcod;
 
 procedure TdmPrint.DataModuleCreate(Sender: TObject);
 begin
   FTask := nil;
-  FDefPrinterName := '';
+  FSettings := nil;
 end;
 
 function TdmPrint.PrepareReport(Task: TPrintTask): boolean;
@@ -58,27 +56,29 @@ begin
   FileName := FFormPath + Task.PrintForm;
   frxReport.Preview.Visible := FileExists(FileName);
   if not frxReport.Preview.Visible then Exit;
-  if (FileName <> frxReport.FileName) then frxReport.LoadFromFile(FileName);
+  frxReport.LoadFromFile(FileName);
   frxUserDataSet.First;
   FTask := Task;
   frxBarCode := TfrxBarCodeView(frxReport.FindObject('BarCode'));
   frxPage := TfrxReportPage(frxReport.FindObject('Page'));
-  if frxBarCode <> nil then
-    case FDefBarCode of
+  if (frxPage <> nil) and (frxBarCode <> nil) then begin
+    frxBarCode.Zoom := FSettings.BarCodeZoom;
+    frxBarCode.Left := frxBarCode.Left + FSettings.BarCodeLeft;
+    case FSettings.DefBarCode of
       SettingsDataUnit.bcEAN13: begin
         frxBarCode.BarType := bcCodeEAN13;
         frxBarCode.CalcCheckSum := True;
-        frxBarCode.Zoom := 2;
+        //frxBarCode.Zoom := 2;
       end;
       SettingsDataUnit.bcCODE128A: begin
         frxBarCode.BarType := bcCode128A;
         frxBarCode.CalcCheckSum := False;
-        frxBarCode.Zoom := 1;
+        //frxBarCode.Zoom := 1.1;
+        //frxBarCode.Left := frxBarCode.Left - 10;
       end;
     end;
-  if (frxPage <> nil) and (frxBarCode <> nil)  then
-    frxBarCode.Left := trunc((frxPage.Width - frxBarCode.Width) / 2)
-      + (302 - frxPage.Width) * 0.15 ;
+  end;
+  //frxBarCode.Left := frxBarCode.Left + FSettings.BarCodeLeft;
   Result := True;
 end;
 
@@ -123,15 +123,16 @@ begin
     value := 'ÈÇÃÎÒÎÂÈÒÅËÜ ' + FTask.Factory.PrintTitleShort
       + ' ' + FTask.Product.TU;
   if CompareText(VarName,'CODE') = 0 then
-    case FDefBarCode of
+    case FSettings.DefBarCode of
       SettingsDataUnit.bcEAN13: value := Self.GetEAN13(Num);
       SettingsDataUnit.bcCODE128A: value := Self.GetCODE128(Num);
     end;
 end;
 
 
-procedure TdmPrint.Preview(Task: TPrintTask);
+procedure TdmPrint.Preview(Task: TPrintTask; Settings: TSettingsData);
 begin
+  FSettings := Settings;
   if not Self.PrepareReport(Task) then Exit;
   frxUserDataSet.RangeEndCount := 1;
   frxReport.PrepareReport(True);
@@ -146,7 +147,7 @@ var
 begin
   Result := False;
   if Length(FTask.Printer) > 0 then Name := FTask.Printer
-    else Name := FDefPrinterName;
+    else Name := FSettings.DefPrinterName;
   if Length(Name) = 0 then Exit;
   Ind := frxPrinters.IndexOf(Name);
   if Ind >= 0 then begin
@@ -156,9 +157,10 @@ begin
   end;
 end;
 
-function TdmPrint.Print(Task: TPrintTask): boolean;
+function TdmPrint.Print(Task: TPrintTask; Settings: TSettingsData): boolean;
 begin
   Result := False;
+  FSettings := Settings;
   if not Self.PrepareReport(Task) then Exit;
   frxReport.PrintOptions.ShowDialog := True;
   if Self.SetPrinter then
