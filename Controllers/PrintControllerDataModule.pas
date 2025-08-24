@@ -111,7 +111,7 @@ begin
     FormatFloat('#0.00', FTask.Model.GrossWeight) + ' Í„';
   if CompareText(VarName, 'mydate') = 0 then value :=
     FormatDateTime('dd.mm.yy', FTask.Date);
-  Num := frxUserDataSet.RecordCount - frxUserDataSet.RecNo;
+  Num := frxUserDataSet.RecordCount - frxUserDataSet.RecNo + FTask.First - 1;
   if CompareText(VarName,'sn') = 0 then
     value := FTask.Factory.CodeString + FTask.Model.CodeString
       + FormatDateTime('ddmmyy', FTask.Date) + FTask.Shift.CodeString
